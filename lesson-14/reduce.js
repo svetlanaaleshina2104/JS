@@ -28,4 +28,4 @@ const users = [
     }
   ];
   
-  console.log(users.map(user => user.posts).reduce( (acc, qua) => acc += qua));
+  console.log(users.map(user => user.posts).reduce( (acc, qua) => acc += qua), 0);

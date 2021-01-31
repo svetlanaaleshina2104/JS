@@ -5,8 +5,9 @@ const arr2 = [2, 15, 15, 1, 1, 1, 23, 7, 8, 7, 1, 1];
 
 function onlyUniqValues(arr) {
     const result = [];
+    const sortedArray = arr.sort( (a, b) => a - b );
     
-    arr.forEach( (num, index, array) => {
+    sortedArray.forEach( (num, index, array) => {
         if (num === array[index + 1]){
      return;
  }        else {
@@ -17,3 +18,19 @@ function onlyUniqValues(arr) {
 }
 
 console.log(onlyUniqValues(arr2));
+
+
+function uniq(arr) {
+    const res = arr.reduce((acc, num) => {
+        acc[num] = true;
+        return acc;
+    }, {});
+
+    return Object.keys(res).map( num => Number.parseInt(num) );
+}
+
+
+const arrNew = uniq(arr2);
+
+console.log(arrNew.reverse() );
+console.log(arrNew.join(' -- ') );
