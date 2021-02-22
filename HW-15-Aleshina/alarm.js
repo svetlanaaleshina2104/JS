@@ -7,14 +7,21 @@ let input = '';
 let alarmTime = null;
 let now = new Date();
 
-buttonInst.addEventListener('click', () => {alert('Будильник установлен')}); // обработчик события-нажатия на кнопку
 
 function setTime() {
+    now = new Date();
     input = document.getElementById('time').value;
-    alarmTime = new Date(now.toDateString() + ' ' + input);
+    let time = new Date(now.toDateString() + ' ' + input);
+  
     
-}    
+    if (time < now) {
+      alert ('Время установлено не верно!')
+    } else {
+      alarmTime = time;
+      alert('Будильник установлен')
+    }
 
+}    
   
   setInterval( () => {
     now = new Date();
